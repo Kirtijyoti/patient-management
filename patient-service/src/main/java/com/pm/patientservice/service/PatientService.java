@@ -6,7 +6,6 @@ import com.pm.patientservice.repository.PatientRepository;
 import com.pm.patientservice.dto.PatientResponseDTO;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,7 +19,7 @@ public class PatientService {
     public List<PatientResponseDTO> getPatients(){
         List<Patient> patients = patientRepository.findAll();
 
-        List<PatientResponseDTO> dtos = patients.stream().map(PatientMapper::toDTO).toList();
+        return patients.stream().map(PatientMapper::toDTO).toList();
     }
 
 }
