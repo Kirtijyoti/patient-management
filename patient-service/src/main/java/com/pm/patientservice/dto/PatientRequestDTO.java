@@ -16,11 +16,17 @@ public class PatientRequestDTO {
     @NotBlank(message = "Address is required")
     private String address;
 
-    @NotNull(message = "Date of birth is required")
+    @NotBlank(message = "Date of birth is required")
     private String dateOfBirth;
 
-    @NotNull(message = "Registered date is required")
+    @NotBlank(groups = CreatePatientValidationGroup.class, message = "Registered date is required")
     private String registeredDate;
+
+    /*
+     * The checks on getters and setters are not required.
+     *
+     * Leaving it as it is for now
+     */
 
     public @NotBlank(message = "Name is required") @Size(max = 100, message = "Name cannot exceed 100 characters") String getName() {
         return name;
@@ -38,19 +44,19 @@ public class PatientRequestDTO {
         this.email = email;
     }
 
-    public @NotNull(message = "Date of birth is required") String getDateOfBirth() {
+    public @NotBlank(message = "Date of birth is required") String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(@NotNull(message = "Date of birth is required") String dateOfBirth) {
+    public void setDateOfBirth(@NotBlank(message = "Date of birth is required") String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public @NotNull(message = "Registered date is required") String getRegisteredDate() {
+    public String getRegisteredDate() {
         return registeredDate;
     }
 
-    public void setRegisteredDate(@NotNull(message = "Registered date is required") String registeredDate) {
+    public void setRegisteredDate(String registeredDate) {
         this.registeredDate = registeredDate;
     }
 
